@@ -41,9 +41,8 @@ if __name__ == "__main__":
             current_msg = bus.read_i2c_block_data(nano_addr, 1, 2)
 
             # conversion to get real voltage
-            system_current = (
-                float((((current_msg[0] & 0x7) << 7) + current_msg[1])) * calCurrent
-            )
+            system_current = (float(
+                (((current_msg[0] & 0x7) << 7) + current_msg[1])) * calCurrent)
 
             # debug
             print("System current raw : " + str(current_msg))
